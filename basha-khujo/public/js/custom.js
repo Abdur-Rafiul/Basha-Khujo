@@ -125,3 +125,8 @@ $('.upazila').on('change', function() {
 
         })
 })
+
+alert(1)
+$('.basha_list').click(function (){
+
+})

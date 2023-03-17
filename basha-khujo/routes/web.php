@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminHomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +23,11 @@ Route::get('/', [HomeController::class, 'Home']);
 Route::post('/districts', [HomeController::class, 'districts']);
 Route::post('/upazila', [HomeController::class, 'upazila']);
 Route::post('/union', [HomeController::class, 'union']);
+
+
+//Admin Section
+
+Route::get('/admin', [AdminHomeController::class, 'Home'])->name('dashboard');
+Route::get('/basha_list', [AdminHomeController::class, 'BashaList'])->name('basha_list');
+
+//End Section
