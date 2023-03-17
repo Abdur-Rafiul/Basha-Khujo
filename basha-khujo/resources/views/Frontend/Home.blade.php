@@ -7,11 +7,13 @@
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 
     </div>
-    <div class="card-body" >
+    <div class="card-body" style="background-image:url({{url('photo/body-bg.jpg')}})">
         <div class="container py-5" >
-            <div class="row  mb-5 p-5" style="height:120; background: linear-gradient(90deg, #f3f3f3 0%, #e5dfe5 100%);">
+            <div class="row  mb-5 p-5 mt-5" style="height:120; background: linear-gradient(90deg, #000000 0%, #050105 100%);color: white">
+                <h1 class="text-center p-4">The easiest way to find a home</h1>
                 <div class="col-lg-3">
                     <div class="">
+
                         <select class="division w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="division" id="division">
 
                             <option data-display="Select Division *" value="">Select Division *</option>
