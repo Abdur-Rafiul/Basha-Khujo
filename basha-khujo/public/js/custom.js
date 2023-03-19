@@ -1,4 +1,41 @@
 
+
+axios.get('/division',{
+
+
+})
+    .then(function (response) {
+        // handle success
+        let length = response.data.length;
+
+        //alert(length)
+        if(response.status == 200){
+
+            //alert(1)
+            $('.division').empty();
+            for(let i = 0; i < length; i++){
+
+                $('.division').append(
+                    "<option value="+response.data[i].id+">"+response.data[i].name+ "</option>"
+                )
+
+            }
+
+
+
+
+
+        }
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+
+
+    })
+
+
+
 $('.division').on('change', function() {
 
     let division_id = $(".division option:selected").val();
@@ -128,5 +165,11 @@ $('.upazila').on('change', function() {
 
 alert(1)
 $('.basha_list').click(function (){
+
+})
+
+
+$('.bashaConfirm').click(function (){
+
 
 })

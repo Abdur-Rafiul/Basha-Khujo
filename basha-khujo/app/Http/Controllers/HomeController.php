@@ -19,6 +19,14 @@ class HomeController extends Controller
 
     }
 
+    public function division(Request $req){
+
+        $divisions = Division::all();
+
+
+        return $divisions;
+
+    }
     public function districts(Request $req){
 
         $division_id = $req->input('division_id');

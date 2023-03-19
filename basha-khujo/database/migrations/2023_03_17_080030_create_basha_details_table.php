@@ -45,6 +45,7 @@ return new class extends Migration
             $table->string('secyrity')->nullable();
             $table->string('parking')->nullable();
             $table->string('description')->nullable();
+            $table->string('status')->nullable();
 
             $table->timestamps();
         });

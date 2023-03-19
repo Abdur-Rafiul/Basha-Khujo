@@ -23,6 +23,7 @@ Route::get('/', [HomeController::class, 'Home']);
 Route::post('/districts', [HomeController::class, 'districts']);
 Route::post('/upazila', [HomeController::class, 'upazila']);
 Route::post('/union', [HomeController::class, 'union']);
+Route::get('/division', [HomeController::class, 'division']);
 
 
 //Admin Section
