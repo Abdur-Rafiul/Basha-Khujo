@@ -46,14 +46,14 @@
                             <form class="row g-3 needs-validation" novalidate>
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Basha name</label>
-                                    <input type="text" class="form-control" class="bashaName" id="validationCustom01" value="" required>
+                                    <input type="text" class="form-control bashaName"  id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Basha No</label>
-                                    <input type="text" class="form-control" class="bashaNo" id="validationCustom02" value="" required>
+                                    <input type="text" class="form-control bashaNo" id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -68,28 +68,28 @@
 
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Photo</label>
-                                    <input type="file" class="form-control" class="img1" id="validationCustom02" value="" required>
+                                    <input type="file" class="form-control img1"  id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Photo</label>
-                                    <input type="file" class="form-control" class="img2" id="validationCustom02" value="" required>
+                                    <input type="file" class="form-control img2"  id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Photo</label>
-                                    <input type="file" class="form-control" class="img3" id="validationCustom02" value="" required>
+                                    <input type="file" class="form-control img3"  id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Photo</label>
-                                    <input type="file" class="form-control" class="img4" id="validationCustom02" value="" required>
+                                    <input type="file" class="form-control img4"  id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -320,28 +320,28 @@
 
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Current Bill</label>
-                                    <input type="text" class="form-control" class="Current_bill" id="validationCustom01" value="" required>
+                                    <input type="text" class="Current_bill form-control"  id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Gas Bill</label>
-                                    <input type="text" class="form-control" class="gas_bill" id="validationCustom01" value="" required>
+                                    <input type="text" class="gas_bill form-control" id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Water Bill</label>
-                                    <input type="text" class="form-control" class="water_bill" id="validationCustom01" value="" required>
+                                    <input type="text" class="water_bill form-control" id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Service Charge</label>
-                                    <input type="text" class="form-control" class="service_charge" id="validationCustom01" value="" required>
+                                    <input type="text" class="service_charge form-control" id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -349,14 +349,14 @@
 
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Sit Charge</label>
-                                    <input type="text" class="form-control" class="sit_charge" id="validationCustom01" value="" required>
+                                    <input type="text" class="sit_charge form-control"  id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="validationCustom01" class="form-label text-left">Basha Charge</label>
-                                    <input type="text" class="form-control" class="basha_charge" id="validationCustom01" value="" required>
+                                    <input type="text" class="basha_charge form-control"  id="validationCustom01" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
