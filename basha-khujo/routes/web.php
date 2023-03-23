@@ -30,5 +30,6 @@ Route::get('/division', [HomeController::class, 'division']);
 
 Route::get('/admin', [AdminHomeController::class, 'Home'])->name('dashboard');
 Route::get('/basha_list', [AdminHomeController::class, 'BashaList'])->name('basha_list');
+Route::post('/bashaAdd', [AdminHomeController::class, 'bashaAdd']);
 
 //End Section

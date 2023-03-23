@@ -59,12 +59,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="validationCustom02" class="form-label">Basha No</label>
-                                    <input type="text" class="form-control" class="bashaNo" id="validationCustom02" value="" required>
+                                    <label for="validationCustom02" class="form-label">Woner Name</label>
+                                    <input type="text" class="form-control woner_no" id="validationCustom02" value="" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
+
 
                                 <div class="col-md-4">
                                     <label for="validationCustom02" class="form-label">Photo</label>
@@ -372,7 +373,7 @@
 
 
                                 <div class="col-md-12">
-                                    <button id="bashaConfirm" type="submit" class="btn btn-primary btn-lg me-0">Save</button>
+                                    <button id="bashaConfirm" type="button" class="btn btn-primary btn-lg me-0">Save</button>
 
                                 </div>
                             </form>

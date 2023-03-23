@@ -4,6 +4,7 @@
 @section('content')
 
 @include('Frontend.basha_search')
+@include('Frontend.basha')
 
 
 
