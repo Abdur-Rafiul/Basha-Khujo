@@ -10,12 +10,14 @@
                         <th class="th-sm">id</th>
                         <th class="th-sm">Photo</th>
                         <th class="th-sm">Basha Name</th>
+                        <th class="th-sm">Booking Status</th>
+                        <th class="th-sm">Customer View</th>
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                     </tr>
                     </thead>
 
-                    <tbody class="floor_table">
+                    <tbody class="basha_table">
 
 
 
@@ -364,8 +366,11 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <label for="validationCustom01" class="form-label text-left">Basha Description</label>
-                                    <textarea  class="description w-100" name="" id="" cols="30" rows="10"></textarea>
+                                    <label for="validationCustom01"  class="form-label text-left">Basha Description</label>
+
+                                    <div class="form-group">
+                                        <textarea  class="form-control description summernote" name="summernote" id="summernote"></textarea>
+                                    </div>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -390,37 +395,366 @@
     </div>
     {{-- Floor Add End --}}
     {{-- Floor Edit --}}
-    <div class="modal fade" id="EditFloorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="EditbashaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Floor</h5>
-                    <h5 class="d-none" id="FloorUpdateID"></h5>
+                    <h5 class="modal-title">Edit Basha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                 </div>
-                <div class="modal-body  text-center">
-                    <div class="container">
-                        <h6 class="d-none" id="FloorEditID"></h6>
+                <div style="background-image:url({{url('photo/body-bg.jpg')}})" class="modal-body  text-center">
+                    <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form>
-                                    <input id="FloorEditImg" type="file" id="" class="form-control mb-3"
-                                           placeholder="Floor Photo">
-                                    <input id="FloorEditName" type="text" id="" class="form-control mb-3"
-                                           placeholder="Floor Name">
-                                </form>
 
+
+
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Basha name</label>
+                                <input type="text" class="form-control bashaName"  id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Basha No</label>
+                                <input type="text" class="form-control bashaNo" id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Woner Name</label>
+                                <input type="text" class="form-control woner_no" id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
                             </div>
 
-                        </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Photo</label>
+                                <input type="file" class="form-control img1"  id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Photo</label>
+                                <input type="file" class="form-control img2"  id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Photo</label>
+                                <input type="file" class="form-control img3"  id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Photo</label>
+                                <input type="file" class="form-control img4"  id="validationCustom02" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Division</label>
+                                <select class="division w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name=""  id="">
+                                    <option data-display="Select Division *" value="">Select Division *</option>
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">District</label>
+                                <select class="district w-100 bb form-control" id="district">
+                                    <option data-display="Select District*" value="">Select District *</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Upazila</label>
+                                <select class="upazila w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="upazila" id="upazila">
+                                    <option data-display="Select Division *" value="">Select Upazila *</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Union</label>
+                                <select class="union w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option  data-display="Select Division *" value="">Select Union *</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Basha Type</label>
+                                <select class="basha_type w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="Single">Single</option>
+                                    <option data-display="Select Division *" value="Single">Double</option>
+                                    <option data-display="Select Division *" value="Single">Sublet</option>
+                                    <option data-display="Select Division *" value="Single">Flat</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Bed Room</label>
+                                <select class="bed_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="1">1</option>
+                                    <option data-display="Select Division *" value="2">2</option>
+                                    <option data-display="Select Division *" value="3">3</option>
+                                    <option data-display="Select Division *" value="4">4</option>
+                                    <option data-display="Select Division *" value="5">5</option>
+                                    <option data-display="Select Division *" value="6">6</option>
+                                    <option data-display="Select Division *" value="7">7</option>
+                                    <option data-display="Select Division *" value="8">8</option>
+                                    <option data-display="Select Division *" value="9">9</option>
+                                    <option data-display="Select Division *" value="10">10</option>
+                                    <option data-display="Select Division *" value="11">11</option>
+                                    <option data-display="Select Division *" value="12">12</option>
+                                    <option data-display="Select Division *" value="13">13</option>
+                                    <option data-display="Select Division *" value="14">14</option>
+                                    <option data-display="Select Division *" value="15">15</option>
+                                    <option data-display="Select Division *" value="16">16</option>
+                                    <option data-display="Select Division *" value="17">17</option>
+                                    <option data-display="Select Division *" value="18">18</option>
+                                    <option data-display="Select Division *" value="19">19</option>
+                                    <option data-display="Select Division *" value="20">20</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Wash Room</label>
+                                <select class="wash_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="1">1</option>
+                                    <option data-display="Select Division *" value="2">2</option>
+                                    <option data-display="Select Division *" value="3">3</option>
+                                    <option data-display="Select Division *" value="4">4</option>
+                                    <option data-display="Select Division *" value="5">5</option>
+                                    <option data-display="Select Division *" value="6">6</option>
+                                    <option data-display="Select Division *" value="7">7</option>
+                                    <option data-display="Select Division *" value="8">8</option>
+                                    <option data-display="Select Division *" value="9">9</option>
+                                    <option data-display="Select Division *" value="10">10</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Kitchen Room</label>
+                                <select class="kitchen_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="1">1</option>
+                                    <option data-display="Select Division *" value="2">2</option>
+                                    <option data-display="Select Division *" value="3">3</option>
+                                    <option data-display="Select Division *" value="4">4</option>
+                                    <option data-display="Select Division *" value="5">5</option>
+                                    <option data-display="Select Division *" value="6">6</option>
+
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Barinda Room</label>
+                                <select class="barinda_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="1">1</option>
+                                    <option data-display="Select Division *" value="2">2</option>
+                                    <option data-display="Select Division *" value="3">3</option>
+                                    <option data-display="Select Division *" value="4">4</option>
+                                    <option data-display="Select Division *" value="5">5</option>
+                                    <option data-display="Select Division *" value="6">6</option>
+
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Flat Position</label>
+                                <select class="flat_position w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                    <option data-display="Select Division *" value="1">1 Floor</option>
+                                    <option data-display="Select Division *" value="2">2 Floor</option>
+                                    <option data-display="Select Division *" value="3">3 Floor</option>
+                                    <option data-display="Select Division *" value="4">4 Floor</option>
+                                    <option data-display="Select Division *" value="5">5 Floor</option>
+                                    <option data-display="Select Division *" value="6">6 Floor</option>
+                                    <option data-display="Select Division *" value="6">7 Floor</option>
+                                    <option data-display="Select Division *" value="6">8 Floor</option>
+                                    <option data-display="Select Division *" value="6">9 Floor</option>
+                                    <option data-display="Select Division *" value="6">10 Floor</option>
+                                    <option data-display="Select Division *" value="6">11 Floor</option>
+                                    <option data-display="Select Division *" value="6">12 Floor</option>
+
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label mt-4 ">Gas supply</label>
+
+                                <input style="margin-top: 29px" class="gas_supply form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <label class="" for="">
+                                    Ok
+                                </label>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom02" class="form-label mt-4 ">Lift</label>
+
+                                <input style="margin-top: 29px" class="lift form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="" for="">
+                                    Ok
+                                </label>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom02" class="form-label mt-4 ">Genator</label>
+
+                                <input style="margin-top: 29px" class="generator form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <label class="" for="">
+                                    Ok
+                                </label>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="validationCustom02" class="form-label mt-4 ">Security</label>
+
+                                <input style="margin-top: 29px" class="security form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <label class="" for="">
+                                    Ok
+                                </label>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="validationCustom02" class="form-label mt-4 ">Parking</label>
+
+                                <input style="margin-top: 29px" class="parking form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <label class="" for="">
+                                    Ok
+                                </label>
+
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Current Bill</label>
+                                <input type="text" class="Current_bill form-control"  id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Gas Bill</label>
+                                <input type="text" class="gas_bill form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Water Bill</label>
+                                <input type="text" class="water_bill form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Service Charge</label>
+                                <input type="text" class="service_charge form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Sit Charge</label>
+                                <input type="text" class="sit_charge form-control"  id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label text-left">Basha Charge</label>
+                                <input type="text" class="basha_charge form-control"  id="validationCustom01" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="validationCustom01"  class="form-label text-left">Basha Description</label>
+
+                                <div class="form-group">
+                                    <textarea  class="form-control description summernote" name="summernote" id="summernote"></textarea>
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <button id="UpdatebashaConfirm" type="button" class="btn btn-primary btn-lg me-0">Save</button>
+
+                            </div>
+                        </form>
+
+
+
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-primary" data-mdb-dismiss="modal">Cancel</button>
-                    <button id="FloorEditUpdateConfirmBtn" type="button" class="btn  btn-sm  btn-danger">Save</button>
-                </div>
+
+
             </div>
         </div>
     </div>
@@ -428,7 +762,7 @@
 
 
     <!-- Floor Delete Modal -->
-    <div class="modal fade" id="deleteFloorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deletebashaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -445,21 +779,24 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 
 @section('script')
 
     <script type="text/javascript">
-        getFloorData();
+
+
+        getBashaData();
 
 
 
         //For Floor Table
-        function getFloorData() {
+        function getBashaData() {
 
 
-            axios.get('/getFloorDataAdmin')
+            axios.get('/getbasha')
                 .then(function(response) {
                     //alert("Robin");
 
@@ -467,7 +804,7 @@
 
                         //$('#dataTable').DataTable().destroy();
 
-                        $('.floor_table').empty();
+                        $('.basha_table').empty();
 
 
 
@@ -475,32 +812,33 @@
                         $.each(dataJSON, function(i, item) {
                             $('<tr>').html(
 
+                                "<td>"+ item['id']+"</td>"+
                                 "<td><img style='width: 90px' data-id=" + item['id'] +
-                                " class='imgOnRow' src=" + item['floor_img'] + "></td>" +
-                                "<td>" + dataJSON[i].floor_name + "</td>" +
+                                " class='imgOnRow' src=" + item['img1'] + "></td>" +
+                                "<td>" + dataJSON[i].name + "</td>" +
 
-                                "<td><a class='floorEditBtn' data-id=" + dataJSON[i].id +
+                                "<td><a class='bashaEditBtn' data-id=" + dataJSON[i].id +
                                 " ><i class='fas fa-edit'></i></a></td>" +
-                                "<td ><a   class='floorDeleteBtn' data-img=" + dataJSON[i].floor_img +
+                                "<td ><a   class='bashaDeleteBtn' data-img=" + dataJSON[i].img1 +
                                 "  data-id=" + dataJSON[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
 
 
-                            ).appendTo('.floor_table');
+                            ).appendTo('.basha_table');
                         });
 
-                        $('.floorEditBtn').click(function() {
+                        $('.bashaEditBtn').click(function() {
                             var id = $(this).data('id');
 
                             // alert(id);
-                            $('#FloorEditID').html(id);
+                            $('#bashaEditID').html(id);
 
-                            getEditFloorId(id);
+                            getEditbashaId(id);
 
-                            $('#EditFloorModal').modal('show');
+                            $('#EditbashaModal').modal('show');
                         })
 
 
-                        $('.floorDeleteBtn').click(function() {
+                        $('.bashaDeleteBtn').click(function() {
 
                             var id = $(this).data('id');
                             var imgLocation = $(this).data('img');
@@ -508,12 +846,12 @@
 
 
 
-                            $('#FloorDeleteID').html(id);
-                            $('#FloorDeleteImg').html(imgLocation);
+                            $('#bashaDeleteID').html(id);
+                            $('#bashaDeleteImg').html(imgLocation);
 
 
 
-                            $('#deleteFloorModal').modal('show');
+                            $('#deletebashaModal').modal('show');
                         })
 
 
@@ -536,71 +874,17 @@
         }
 
 
-        $('#bashaAdd').click(function() {
-
-            $('#bashaAddModal').modal('show');
-
-        })
-
-        $('#FloorAddConfirmBtn').click(function() {
-
-
-
-            var FloorName = $('#FloorName').val();
-
-            var MyFile = $('#FloorImg').prop('files')
-            var MyFormData = new FormData();
-            MyFormData.append('FileKey', MyFile[0]);
-            MyFormData.append('FloorName', FloorName);
-
-            if (FloorName.length == 0) {
-
-                //toastr.error('Floor Name is Empty !');
-                alert("Floor Name is Empty !")
-            } else {
-                axios.post('/floorAdd', MyFormData)
-
-
-                    .then(function(response) {
-                        console.log(response)
-                        if (response.status == 200) {
-
-                            if (response.data == 1) {
-                                alert("Floor Data is Successfully Added !")
-                                getFloorData();
-                                $('#addFloorModal').modal('hide');
-                            } else {
-                                alert("Floor Data Failed !")
-                                getFloorData();
-                                $('#addFloorModal').modal('hide');
-                            }
-                            //toastr.success(' alert("Floor Name is Empty !").', {timeOut: 2000})
-
-
-                        } else {
-                            alert("Floor Data Failed !")
-                            getFloorData();
-                            $('#addFloorModal').modal('hide');
-
-                        }
-                    }).catch(function(error) {
-                    // toastr.warning('Floor Data Not Response.', {timeOut: 2000})
-                    alert("Floor Data Not Response!")
-                    getFloorData();
-                    $('#addFloorModal').modal('hide');
-                })
-            }
-
-        })
 
 
 
 
 
         //Each Services Details
-        function getEditFloorId(EditID) {
+        function getEditbashaId(EditID) {
 
-            axios.post('/FloorEdit', {
+            alert(EditID);
+
+            axios.post('/editbasha', {
                 id: EditID
             })
                 .then(function(response) {
@@ -611,9 +895,35 @@
 
                         var jsonData = response.data;
 
-                        $('#FloorEditName').val(jsonData[0].floor_name);
-                        //alert(name);
-                        // $('#CourseDesUpdateId').val(jsonData[0].course_des);
+                        let bashaName = $('.bashaName').val(jsonData.name);
+                        let bashaNo = $('.bashaNo').val(jsonData.no);
+                        let woner_no = $('.woner_no').val(jsonData.woner_no);
+
+
+                        let img1= $('.img1').prop('files');
+                        let img2= $('.img2').prop('files');
+                        let img3= $('.img3').prop('files');
+                        let img4= $('.img4').prop('files');
+                        let division = $(".division option:selected").val();
+                        let district = $(".district option:selected").val();
+                        let upazila = $(".upazila option:selected").val();
+                        let union = $(".union select").val(jsonData.union);
+                        let basha_type = $(".basha_type option:selected").val(jsonData.basha_type);
+                        let bed_room = $(".bed_room option:selected").val(jsonData.bed_room);
+                        let wash_room = $(".wash_room option:selected").val(jsonData.wash_room);
+                        let kitchen_room = $(".kitchen_room option:selected").val(jsonData.kitchen_room);
+                        let barinda_room = $(".barinda_room option:selected").val(jsonData.barinda);
+                        let flat_position = $(".flat_position option:selected").val(jsonData.flat_position);
+                        let gas_supply = 0;
+
+
+                        let Current_bill = $('.Current_bill').val(jsonData.current_bill);
+                        let gas_bill = $('.gas_bill').val(jsonData.gash_bill);
+                        let water_bill = $('.water_bill').val(jsonData.water_bill);
+                        let service_charge = $('.service_charge').val(jsonData.service_charge);
+                        let sit_charge = $('.sit_charge').val(jsonData.sit_charge);
+                        let basha_charge = $('.basha_charge').val(jsonData.flat_charge);
+                        let description = $('.description').val(jsonData.description);
 
 
                     } else {
@@ -631,49 +941,192 @@
         }
 
 
-        $('#FloorEditUpdateConfirmBtn').click(function() {
-            var FloorName = $('#FloorEditName').val();
-            var id = $('#FloorEditID').html();
-            var MyFile = $('#FloorEditImg').prop('files')
-            var MyFormData = new FormData();
-            MyFormData.append('FileKey', MyFile[0]);
-            MyFormData.append('FloorName', FloorName);
-            MyFormData.append('id', id);
+        $('#UpdatebashaConfirm').click(function() {
 
-            if (FloorName.length == 0) {
+            let bashaName = $('.bashaName').val();
+            let bashaNo = $('.bashaNo').val();
+            let woner_no = $('.woner_no').val();
+            // let img1 = $('.img1')[0].files[0].name;
+            // let img2 = $('.img2')[0].files[0].name;
+            // let img3 = $('.img3')[0].files[0].name;
+            // let img4 = $('.img4')[0].files[0].name;
 
-                toastr.error('Floor Name is Empty !');
+            let img1= $('.img1').prop('files');
+            let img2= $('.img2').prop('files');
+            let img3= $('.img3').prop('files');
+            let img4= $('.img4').prop('files');
+            let division = $(".division option:selected").val();
+            let district = $(".district option:selected").val();
+            let upazila = $(".upazila option:selected").val();
+            let union = $(".union option:selected").val();
+            let basha_type = $(".basha_type option:selected").val();
+            let bed_room = $(".bed_room option:selected").val();
+            let wash_room = $(".wash_room option:selected").val();
+            let kitchen_room = $(".kitchen_room option:selected").val();
+            let barinda_room = $(".barinda_room option:selected").val();
+            let flat_position = $(".flat_position option:selected").val();
+            let gas_supply = 0;
 
-            } else {
 
 
-                axios.post('/FloorEditUpdateConfirmBtn', MyFormData)
+            if ($(".gas_supply").is(':checked')){
+                gas_supply = 1;
+                // alert(gas_supply);
+            }
+
+
+
+            else {
+                // alert("unchecked");
+                gas_supply = 0;
+                // alert(gas_supply);
+            }
+
+            let lift = 0;
+
+
+
+            if ($(".lift").is(':checked')){
+                lift = 1;
+                // alert(gas_supply);
+            }
+
+
+
+            else {
+                // alert("unchecked");
+                lift = 0;
+                // alert(gas_supply);
+            }
+
+            //alert(gas_supply);
+            let generator = 0;
+
+
+
+            if ($(".generator").is(':checked')){
+                generator = 1;
+                // alert(gas_supply);
+            }
+
+
+
+            else {
+                // alert("unchecked");
+                generator = 0;
+                // alert(gas_supply);
+            }
+
+            // alert(generator);
+
+            let security = 0;
+
+
+
+            if ($(".security").is(':checked')){
+                security = 1;
+                // alert(gas_supply);
+            }
+
+
+
+            else {
+                // alert("unchecked");
+                security = 0;
+                // alert(gas_supply);
+            }
+
+            // alert(generator);
+
+            let parking = 0;
+
+
+
+            if ($(".parking").is(':checked')){
+                parking = 1;
+                // alert(gas_supply);
+            }
+
+
+
+            else {
+                // alert("unchecked");
+                parking = 0;
+                // alert(gas_supply);
+            }
+
+            // alert(generator);
+
+            let Current_bill = $('.Current_bill').val();
+            let gas_bill = $('.gas_bill').val();
+            let water_bill = $('.water_bill').val();
+            let service_charge = $('.service_charge').val();
+            let sit_charge = $('.sit_charge').val();
+            let basha_charge = $('.basha_charge').val();
+            let description = $('.description').val();
+
+            let MyFormData = new FormData();
+            MyFormData.append('FileKey1', img1[0]);
+            MyFormData.append('FileKey2', img2[0]);
+            MyFormData.append('FileKey3', img3[0]);
+            MyFormData.append('FileKey4', img4[0]);
+
+
+
+            MyFormData.append('description', description);
+            MyFormData.append('sit_charge', sit_charge);
+            MyFormData.append('basha_charge', basha_charge);
+            MyFormData.append('service_charge', service_charge);
+            MyFormData.append('water_bill', water_bill);
+            MyFormData.append('gas_bill', gas_bill);
+            MyFormData.append('Current_bill', Current_bill);
+            MyFormData.append('parking', parking);
+            MyFormData.append('security', security);
+            MyFormData.append('generator', generator);
+            MyFormData.append('lift', lift);
+            MyFormData.append('gas_supply', gas_supply);
+            MyFormData.append('division', division);
+            MyFormData.append('district', district);
+            MyFormData.append('upazila', upazila);
+            MyFormData.append('union', union);
+            MyFormData.append('basha_type', basha_type);
+            MyFormData.append('bed_room', bed_room);
+            MyFormData.append('wash_room', wash_room);
+            MyFormData.append('kitchen_room', kitchen_room);
+            MyFormData.append('barinda_room', barinda_room);
+            MyFormData.append('flat_position', flat_position);
+            MyFormData.append('bashaName', bashaName);
+            MyFormData.append('bashaNo', bashaNo);
+            MyFormData.append('woner_no', woner_no);
+
+
+            axios.post('/BashaUpdateConfirmBtn', MyFormData)
 
 
                     .then(function(response) {
                         if (response.status == 200) {
                             if (response.data == 1) {
-                                alert("Floor Data Successfully Updated")
-                                getFloorData();
-                                $('#EditFloorModal').modal('hide');
+                                alert("Basha Data Successfully Updated")
+                                getBashaData();
+                                $('#EditbashaModal').modal('hide');
                             } else {
                                 alert("Floor Data  Update Failed")
-                                getFloorData();
-                                $('#EditFloorModal').modal('hide');
+                                getBashaData();
+                                $('#EditbashaModal').modal('hide');
                             }
 
 
                         } else {
                             alert("Floor Data  Update Failed")
-                            getFloorData();
-                            $('#EditFloorModal').modal('hide');
+                            getBashaData();
+                            $('#EditbashaModal').modal('hide');
                         }
                     }).catch(function(error) {
                     // toastr.warning('Floor Data Update Not Response.', {timeOut: 2000})
-                    getFloorData();
-                    $('#EditFloorModal').modal('hide');
+                getBashaData();
+                    $('#EditbashaModal').modal('hide');
                 })
-            }
+
         })
 
         $('#FloorDeleteConfirmBtn').click(function() {

@@ -1,5 +1,6 @@
 
 
+
 axios.get('/division',{
 
 
@@ -37,6 +38,13 @@ axios.get('/division',{
 
 
 $('.division').on('change', function() {
+    showToast('Successfully Room Data Deleted!', {
+        duration: 5000, // The time interval after notification disappear
+        background: '#20b2aa', // Background color for toast notification
+        color: '#f1f1f1', //Text color
+        borderRadius: '15px', //Border Radius,
+        marginTop: '89px'
+    });
 
     let division_id = $(".division option:selected").val();
 
@@ -163,7 +171,7 @@ $('.upazila').on('change', function() {
         })
 })
 
-alert(1)
+// alert(1)
 $('.basha_list').click(function (){
 
 })
@@ -338,112 +346,67 @@ $('#bashaConfirm').click(function (){
             if (response.status == 200) {
 
                 if (response.data == 1) {
-                    alert("Floor Data is Successfully Added !")
-                    getFloorData();
-                    $('#addFloorModal').modal('hide');
+                    alert("Basha Data is Successfully Added !")
+
+                    $('#bashaAddModal').modal('hide');
                 } else {
                     alert("Floor Data Failed !")
-                    getFloorData();
-                    $('#addFloorModal').modal('hide');
+
+                    $('#bashaAddModal').modal('hide');
                 }
                 //toastr.success(' alert("Floor Name is Empty !").', {timeOut: 2000})
 
 
             } else {
-                alert("Floor Data Failed !")
-                getFloorData();
-                $('#addFloorModal').modal('hide');
+                alert("Basha Data Failed !")
+
+                $('#bashaAddModal').modal('hide');
 
             }
         }).catch(function(error) {
         // toastr.warning('Floor Data Not Response.', {timeOut: 2000})
-        alert("Floor Data Not Response!")
-        getFloorData();
-        $('#addFloorModal').modal('hide');
+        alert("Basha Data Not Response!")
+
+        $('#bashaAddModal').modal('hide');
     })
 
 })
 
-getFloorData();
-
-
-
-//For Floor Table
-function getFloorData() {
-
-
-    axios.get('/getBashaAdmin')
-        .then(function(response) {
-            //alert("Robin");
-
-            if (response.status == 200) {
-
-                //$('#dataTable').DataTable().destroy();
-
-                $('.basha_table').empty();
-
-
-
-                var dataJSON = response.data;
-                $.each(dataJSON, function(i, item) {
-                    $('<tr>').html(
-
-                        "<td><img style='width: 90px' data-id=" + item['id'] +
-                        " class='imgOnRow' src=" + item['floor_img'] + "></td>" +
-                        "<td>" + dataJSON[i].floor_name + "</td>" +
-
-                        "<td><a class='floorEditBtn' data-id=" + dataJSON[i].id +
-                        " ><i class='fas fa-edit'></i></a></td>" +
-                        "<td ><a   class='floorDeleteBtn' data-img=" + dataJSON[i].floor_img +
-                        "  data-id=" + dataJSON[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
-
-
-                    ).appendTo('.basha_table');
-                });
-
-                $('.floorEditBtn').click(function() {
-                    var id = $(this).data('id');
-
-                    // alert(id);
-                    $('#FloorEditID').html(id);
-
-                    getEditFloorId(id);
-
-                    $('#EditFloorModal').modal('show');
-                })
-
-
-                $('.floorDeleteBtn').click(function() {
-
-                    var id = $(this).data('id');
-                    var imgLocation = $(this).data('img');
 
 
 
 
-                    $('#FloorDeleteID').html(id);
-                    $('#FloorDeleteImg').html(imgLocation);
+
+
+//Summonnote
+
+$(document).ready(function() {
+
+    $('.description').summernote({
+        height: 150,   //set editable area's height
+        focus: true
+    });
+
+});
+
+$('#bashaAdd').click(function() {
+
+    $('#bashaAddModal').modal('show');
+
+})
 
 
 
-                    $('#deleteFloorModal').modal('show');
-                })
+function AutomaticCall(){
+    setTimeout(function (){
 
+        document.querySelector('.basha_add').style = "color:white;background-color:black";
+    },2000)
 
-                $('#dataTable').DataTable({
-                    "order": false
-                });
-                $('.dataTables_length').addClass('bs-select');
+    setTimeout(function (){
+        document.querySelector('.basha_add').style = "color:black";
+        AutomaticCall();
+    },3000)
 
-
-            } else {
-
-            }
-
-        })
-        .catch(function(error) {
-
-
-
-        });
 }
+AutomaticCall();

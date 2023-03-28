@@ -5,11 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\basha_details;
 use App\Models\basha_list;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\File;
 class AdminHomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function Home(){
 
         return view('Backend.Home');
@@ -17,6 +24,18 @@ class AdminHomeController extends Controller
     public function BashaList(){
 
         return view('Backend.Basha_List');
+    }
+
+    public function getbasha(){
+
+        $bashas = basha_details::all();
+        return $bashas;
+    }
+    public function editbasha(Request $req){
+
+        $id = $req->input('id');
+        $bashas = basha_details::where('id',$id)->first();
+        return $bashas;
     }
     public function bashaAdd(Request $req){
 
@@ -112,4 +131,22 @@ class AdminHomeController extends Controller
         return 1;
 
     }
+
+
+
+
+
+
+    public function Booking(){
+
+        return view('Backend.booking');
+    }
+
+    public function BookingDetails(){
+
+        $Booking = Booking::all();
+
+        return  $Booking;
+    }
+
 }

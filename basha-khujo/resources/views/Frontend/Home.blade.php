@@ -3,7 +3,10 @@
 
 @section('content')
 
+@include('Frontend.carousel')
 @include('Frontend.basha_search')
+
+
 @include('Frontend.basha')
 
 
