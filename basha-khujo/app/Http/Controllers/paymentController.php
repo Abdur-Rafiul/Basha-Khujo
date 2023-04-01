@@ -91,6 +91,10 @@ class paymentController extends Controller
 
         $booking->save();
 
+        basha_details::
+            where('id', $request->opt_c)
+            ->update(['status' => 1]);
+
         return redirect()->route('home');
     }
 

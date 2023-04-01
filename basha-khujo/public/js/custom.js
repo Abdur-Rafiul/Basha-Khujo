@@ -1,3 +1,45 @@
+!function ($) {
+    $(document).on("click", "ul.nav li.parent > a ", function () {
+        $(this).find('em').toggleClass("fa-minus");
+    });
+    $(".sidebar span.icon").find('em:first').addClass("fa-plus");
+}
+
+(window.jQuery);
+$(window).on('resize', function () {
+    if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+})
+$(window).on('resize', function () {
+    if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+})
+
+
+$(document).ready(function () {
+    $('#rooms').DataTable();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    let myBtns=document.querySelectorAll('.d');
+    myBtns.forEach(function(btn) {
+
+        btn.addEventListener('click', () => {
+            myBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+
+    });
+
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -38,13 +80,7 @@ axios.get('/division',{
 
 
 $('.division').on('change', function() {
-    showToast('Successfully Room Data Deleted!', {
-        duration: 5000, // The time interval after notification disappear
-        background: '#20b2aa', // Background color for toast notification
-        color: '#f1f1f1', //Text color
-        borderRadius: '15px', //Border Radius,
-        marginTop: '89px'
-    });
+
 
     let division_id = $(".division option:selected").val();
 
@@ -180,9 +216,9 @@ $('.basha_list').click(function (){
 $('#bashaConfirm').click(function (){
 
 
-   let bashaName = $('.bashaName').val();
-   let bashaNo = $('.bashaNo').val();
-   let woner_no = $('.woner_no').val();
+    let bashaName = $('.bashaName').val();
+    let bashaNo = $('.bashaNo').val();
+    let woner_no = $('.woner_no').val();
     // let img1 = $('.img1')[0].files[0].name;
     // let img2 = $('.img2')[0].files[0].name;
     // let img3 = $('.img3')[0].files[0].name;
@@ -206,93 +242,93 @@ $('#bashaConfirm').click(function (){
 
 
 
-        if ($(".gas_supply").is(':checked')){
-            gas_supply = 1;
-             // alert(gas_supply);
-        }
+    if ($(".gas_supply").is(':checked')){
+        gas_supply = 1;
+        // alert(gas_supply);
+    }
 
 
 
-        else {
-            // alert("unchecked");
-            gas_supply = 0;
-            // alert(gas_supply);
-        }
+    else {
+        // alert("unchecked");
+        gas_supply = 0;
+        // alert(gas_supply);
+    }
 
-        let lift = 0;
-
-
-
-        if ($(".lift").is(':checked')){
-            lift = 1;
-             // alert(gas_supply);
-        }
+    let lift = 0;
 
 
 
-        else {
-            // alert("unchecked");
-            lift = 0;
-            // alert(gas_supply);
-        }
-
-   //alert(gas_supply);
-        let generator = 0;
+    if ($(".lift").is(':checked')){
+        lift = 1;
+        // alert(gas_supply);
+    }
 
 
 
-        if ($(".generator").is(':checked')){
-            generator = 1;
-             // alert(gas_supply);
-        }
+    else {
+        // alert("unchecked");
+        lift = 0;
+        // alert(gas_supply);
+    }
+
+    //alert(gas_supply);
+    let generator = 0;
 
 
 
-        else {
-            // alert("unchecked");
-            generator = 0;
-            // alert(gas_supply);
-        }
-
-  // alert(generator);
-
-     let security = 0;
+    if ($(".generator").is(':checked')){
+        generator = 1;
+        // alert(gas_supply);
+    }
 
 
 
-        if ($(".security").is(':checked')){
-            security = 1;
-             // alert(gas_supply);
-        }
+    else {
+        // alert("unchecked");
+        generator = 0;
+        // alert(gas_supply);
+    }
+
+    // alert(generator);
+
+    let security = 0;
 
 
 
-        else {
-            // alert("unchecked");
-            security = 0;
-            // alert(gas_supply);
-        }
-
-  // alert(generator);
-
-     let parking = 0;
+    if ($(".security").is(':checked')){
+        security = 1;
+        // alert(gas_supply);
+    }
 
 
 
-        if ($(".parking").is(':checked')){
-            parking = 1;
-             // alert(gas_supply);
-        }
+    else {
+        // alert("unchecked");
+        security = 0;
+        // alert(gas_supply);
+    }
+
+    // alert(generator);
+
+    let parking = 0;
 
 
 
-        else {
-            // alert("unchecked");
-            parking = 0;
-            // alert(gas_supply);
-        }
+    if ($(".parking").is(':checked')){
+        parking = 1;
+        // alert(gas_supply);
+    }
 
-  // alert(generator);
+
+
+    else {
+        // alert("unchecked");
+        parking = 0;
+        // alert(gas_supply);
+    }
+
+    // alert(generator);
 
     let Current_bill = $('.Current_bill').val();
     let gas_bill = $('.gas_bill').val();
@@ -346,11 +382,13 @@ $('#bashaConfirm').click(function (){
             if (response.status == 200) {
 
                 if (response.data == 1) {
-                    alert("Basha Data is Successfully Added !")
+                    toastr.success("Basha Data is Successfully Added !")
+
 
                     $('#bashaAddModal').modal('hide');
+                    getBashaData();
                 } else {
-                    alert("Floor Data Failed !")
+                    toastr.error("Basha Data Failed !")
 
                     $('#bashaAddModal').modal('hide');
                 }
@@ -358,16 +396,17 @@ $('#bashaConfirm').click(function (){
 
 
             } else {
-                alert("Basha Data Failed !")
+                toastr.error("Basha Data Failed !")
 
                 $('#bashaAddModal').modal('hide');
-
+                getBashaData();
             }
         }).catch(function(error) {
         // toastr.warning('Floor Data Not Response.', {timeOut: 2000})
-        alert("Basha Data Not Response!")
+        // toastr.error("Basha Data Not Response!")
 
         $('#bashaAddModal').modal('hide');
+        getBashaData();
     })
 
 })

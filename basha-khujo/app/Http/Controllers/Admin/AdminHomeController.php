@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\basha_details;
 use App\Models\basha_list;
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\File;
@@ -19,16 +20,51 @@ class AdminHomeController extends Controller
 
     public function Home(){
 
-        return view('Backend.Home');
+        $user = User::count();
+        $customer = Booking::count();
+        $basha = basha_details::count();
+        $booking = basha_details::where('status',1)->count();
+
+        return view('Backend.Home',compact('user','customer','basha','booking'));
+
+
     }
     public function BashaList(){
 
         return view('Backend.Basha_List');
     }
+    public function User(){
+
+        return view('Backend.user');
+    }
+
+    public function bashaDelete(Request $request){
+
+        $id = $request->input('id');
+        $result=basha_details::where('id','=',$id)->delete();
+
+        if($result){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+    public function GetUser(){
+
+        $bashas = User::where('type',0)->get();
+        return $bashas;
+    }
 
     public function getbasha(){
 
         $bashas = basha_details::all();
+        return $bashas;
+    }
+
+    public function GetCustomer(){
+
+        $bashas = Booking::all();
         return $bashas;
     }
     public function editbasha(Request $req){
@@ -137,12 +173,12 @@ class AdminHomeController extends Controller
 
 
 
-    public function Booking(){
+    public function Customer(){
 
-        return view('Backend.booking');
+        return view('Backend.customer');
     }
 
-    public function BookingDetails(){
+    public function CustomerDetails(){
 
         $Booking = Booking::all();
 

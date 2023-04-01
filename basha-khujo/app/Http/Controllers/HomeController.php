@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\basha_details;
+use App\Models\Booking;
+use App\Models\User;
 use Devfaysal\BangladeshGeocode\Models\District;
 use Devfaysal\BangladeshGeocode\Models\Division;
 use Devfaysal\BangladeshGeocode\Models\Union;
@@ -73,8 +75,11 @@ class HomeController extends Controller
     public function adminHome()
 
     {
+        $user = User::count();
+        $customer = Booking::count();
+        $basha = basha_details::count();
 
-        return view('adminHome');
+        return view('adminHome',compact('user','customer','basha'));
 
     }
 
@@ -103,7 +108,7 @@ class HomeController extends Controller
     {
 
         $divisions = Division::all();
-        $bashas = basha_details::paginate(2);
+        $bashas = basha_details::simplePaginate(10);
 
         return view('Frontend.Home', compact('divisions', 'bashas'));
 
@@ -164,7 +169,7 @@ class HomeController extends Controller
     public function getBashaFrontend(Request $request){
 
         $bashas = basha_details::where('division',$request->division)->where('districts',$request->district)
-            ->where('upazila',$request->upazila)->where('union',$request->union)->paginate(2);
+            ->where('upazila',$request->upazila)->where('union',$request->union)->orderBy('id', 'desc')->simplePaginate(2);
         $divisions = Division::all();
 
 
@@ -172,7 +177,7 @@ class HomeController extends Controller
             return view('Frontend.Home', compact( 'bashas','divisions'));
         }else{
             $divisions = Division::all();
-            $bashas = basha_details::paginate(2);
+            $bashas = basha_details::orderBy('id', 'desc')->simplePaginate(2);
 
             return view('Frontend.Home', compact('divisions', 'bashas'));
 

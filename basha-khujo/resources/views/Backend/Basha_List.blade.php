@@ -4,12 +4,15 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 p-5 ">
                 <button id="bashaAdd" class="btn btn-danger my-3">Add New Basha</button>
+
                 <table id="dataTable" class="table table-striped table-bordered scroll">
                     <thead>
                     <tr>
                         <th class="th-sm">id</th>
                         <th class="th-sm">Photo</th>
                         <th class="th-sm">Basha Name</th>
+                        <th class="th-sm">Basha Charge</th>
+                        <th class="th-sm">Seat Charge</th>
                         <th class="th-sm">Booking Status</th>
                         <th class="th-sm">Customer View</th>
                         <th class="th-sm">Edit</th>
@@ -368,7 +371,7 @@
                                 <div class="col-md-12">
                                     <label for="validationCustom01"  class="form-label text-left">Basha Description</label>
 
-                                    <div class="form-group">
+                                    <div class="form-group description">
                                         <textarea  class="form-control description summernote" name="summernote" id="summernote"></textarea>
                                     </div>
                                     <div class="valid-feedback">
@@ -768,12 +771,12 @@
 
                 <div class="modal-body p-3 text-center">
                     <h5 class="mt-2">Do You Want To Delete?</h5>
-                    <h6 class="mt-2 d-none" id="FloorDeleteID"></h6>
-                    <h5 class="mt-2 d-none" id="FloorDeleteImg"></h5>
+                    <h6 class="mt-2 d-none bashaDeleteID" id="bashaDeleteID"></h6>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btn-sm" data-mdb-dismiss="modal">No</button>
-                    <a href="#" type="button" data-id="" id="FloorDeleteConfirmBtn"
+                    <a href="#" type="button" data-id="" id="BashaDeleteConfirmBtn"
                        class="btn btn-sm btn-primary">Yes</a>
                 </div>
             </div>
@@ -810,17 +813,31 @@
 
                         var dataJSON = response.data;
                         $.each(dataJSON, function(i, item) {
+                             let status;
+                             if(dataJSON[i].status == 0){
+                                 status = '<i class="text-danger fas fa-lock-open"></i>';
+                             }else{
+                                 status = '<i class="text-danger fas fa-lock"></i>';
+                             }
                             $('<tr>').html(
 
                                 "<td>"+ item['id']+"</td>"+
                                 "<td><img style='width: 90px' data-id=" + item['id'] +
                                 " class='imgOnRow' src=" + item['img1'] + "></td>" +
                                 "<td>" + dataJSON[i].name + "</td>" +
+                                "<td>" + dataJSON[i].flat_charge+ "</td>" +
+                                "<td>" + dataJSON[i].sit_charge+ "</td>" +
+                                "<td>" + status + "</td>" +
+
+                                "<td><a class='customerviewBtn' data-id=" + dataJSON[i].id +
+                                " ><i class='fa fa-eye text-danger'></i></a></td>" +
 
                                 "<td><a class='bashaEditBtn' data-id=" + dataJSON[i].id +
-                                " ><i class='fas fa-edit'></i></a></td>" +
+                                " ><i class='text-danger fas fa-edit'></i></a></td>" +
+
+
                                 "<td ><a   class='bashaDeleteBtn' data-img=" + dataJSON[i].img1 +
-                                "  data-id=" + dataJSON[i].id + "><i class='fas fa-trash-alt'></i></a></td>"
+                                "  data-id=" + dataJSON[i].id + "><i class='text-danger fas fa-trash-alt'></i></a></td>"
 
 
                             ).appendTo('.basha_table');
@@ -841,13 +858,13 @@
                         $('.bashaDeleteBtn').click(function() {
 
                             var id = $(this).data('id');
-                            var imgLocation = $(this).data('img');
+                           // var imgLocation = $(this).data('img');
 
 
 
 
-                            $('#bashaDeleteID').html(id);
-                            $('#bashaDeleteImg').html(imgLocation);
+                            $('.bashaDeleteID').html(id);
+                            //$('.bashaDeleteImg').html(imgLocation);
 
 
 
@@ -882,7 +899,7 @@
         //Each Services Details
         function getEditbashaId(EditID) {
 
-            alert(EditID);
+            // alert(EditID);
 
             axios.post('/editbasha', {
                 id: EditID
@@ -1106,18 +1123,18 @@
                     .then(function(response) {
                         if (response.status == 200) {
                             if (response.data == 1) {
-                                alert("Basha Data Successfully Updated")
+                                toastr.success("Basha Data Successfully Updated")
                                 getBashaData();
                                 $('#EditbashaModal').modal('hide');
                             } else {
-                                alert("Floor Data  Update Failed")
+                                toastr.error("Basha Data  Update Failed")
                                 getBashaData();
                                 $('#EditbashaModal').modal('hide');
                             }
 
 
                         } else {
-                            alert("Floor Data  Update Failed")
+                            toastr.error("Basha Data  Update Failed")
                             getBashaData();
                             $('#EditbashaModal').modal('hide');
                         }
@@ -1129,15 +1146,15 @@
 
         })
 
-        $('#FloorDeleteConfirmBtn').click(function() {
-            var id = $('#FloorDeleteID').html();
-            var img = $('#FloorDeleteImg').html();
+        $('#BashaDeleteConfirmBtn').click(function() {
+            var id = $('.bashaDeleteID').html();
+           // var img = $('#bashaDeleteImg').html();
 
-
-
-            axios.post('/FloorDelete', {
+          //
+          // alert(id);
+            axios.post('/bashaDelete', {
                 id: id,
-                img: img
+
             })
                 .then(function(response) {
 
@@ -1147,22 +1164,23 @@
 
                         if (response.data == 1) {
                             //toastr.success('Floor Data Successfully Deleted.', {timeOut: 2000})
-                            alert('Floor Data Successfully Deleted')
-                            getFloorData();
-                            $('#deleteFloorModal').modal('hide');
+                            // alert('Basha Data Successfully Deleted')
+                            toastr.success("Basha Data Successfully Deleted");
+                            getBashaData();
+                            $('#deletebashaModal').modal('hide');
 
 
 
 
                         } else {
-                            alert('Floor Data Delete Failed')
+                            toastr.error('Basha Data Delete Failed')
 
-                            getFloorData();
+                            getBashaData();
                         }
                     } else {
-                        alert('Floor Data Delete Failed')
+                        toastr.error('Basha Data Delete Failed')
 
-                        getFloorData();
+                        getBashaData();
                     }
 
 
@@ -1171,9 +1189,9 @@
                 .catch(function(error) {
 
                     //toastr.warning('Floor Data Delete Not Response.', {timeOut: 2000})
-                    alert('Floor Data Delete Failed')
+                    toastr.error('Basha Data Delete Failed')
 
-                    getFloorData();
+                    getBashaData();
 
 
 

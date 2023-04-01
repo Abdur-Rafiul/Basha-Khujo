@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{{asset('/css/style.css')}}" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/summernote.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
@@ -74,7 +75,9 @@
 </script>
 
 <script src="{{asset('/js/custom.js')}}"></script>
-<script src="{{asset('/js/jquery.toast.js')}}"></script>
+<script src="{{asset('js/toastr.min.js')}}"></script>
+
+<script src="{{asset('js/summernote.min.js')}}"></script>
 @yield('script')
 </body>
 

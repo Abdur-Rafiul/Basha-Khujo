@@ -40,9 +40,15 @@ Route::get('/basha_list', [AdminHomeController::class, 'BashaList'])->name('bash
 Route::post('/bashaAdd', [AdminHomeController::class, 'bashaAdd']);
 Route::get('/getbasha', [AdminHomeController::class, 'getbasha']);
 Route::post('/editbasha', [AdminHomeController::class, 'editbasha']);
+Route::post('/bashaDelete', [AdminHomeController::class, 'bashaDelete']);
 
 
-Route::get('/booking', [AdminHomeController::class, 'Booking'])->name('booking.list');
+Route::get('/customer', [AdminHomeController::class, 'Customer'])->name('customer.list');
+Route::get('/getcustomer', [AdminHomeController::class, 'GetCustomer']);
+
+Route::get('/user', [AdminHomeController::class, 'User'])->name('user.list');
+Route::get('/getuser', [AdminHomeController::class, 'GetUser']);
+
 Route::get('/BookingDetails', [AdminHomeController::class, 'BookingDetails']);
 
 //End Section
