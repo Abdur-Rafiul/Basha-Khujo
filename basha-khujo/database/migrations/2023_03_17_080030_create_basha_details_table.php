@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('basha_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('basha_list_id');
             $table->string('name');
             $table->string('no')->nullable();
+            $table->string('division')->nullable();
+            $table->string('districts')->nullable();
+            $table->string('upazila')->nullable();
+            $table->string('union')->nullable();
             $table->string('img1')->nullable();
             $table->string('img2')->nullable();
             $table->string('img3')->nullable();
@@ -36,10 +39,7 @@ return new class extends Migration
             $table->string('flat_charge')->nullable();
             $table->string('gash')->nullable();
             $table->string('woner_no')->nullable();
-            $table->string('division')->nullable();
-            $table->string('districts')->nullable();
-            $table->string('upazila')->nullable();
-            $table->string('union')->nullable();
+
             $table->string('lift')->nullable();
             $table->string('generator')->nullable();
             $table->string('secyrity')->nullable();

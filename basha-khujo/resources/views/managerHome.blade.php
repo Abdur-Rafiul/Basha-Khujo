@@ -16,7 +16,7 @@
 
                     <div class="card-body">
 
-                        You are a Manager User.
+                        You are a  User.
 
                     </div>
 

@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 p-5 ">
                 <button id="bashaAdd" class="btn btn-danger my-3">Add New Basha</button>
-
+                <h6 class="basha_id d-none"></h6>
                 <table id="dataTable" class="table table-striped table-bordered scroll">
                     <thead>
                     <tr>
@@ -416,21 +416,21 @@
                         <form class="row g-3 needs-validation" novalidate>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Basha name</label>
-                                <input type="text" class="form-control bashaName"  id="validationCustom01" value="" required>
+                                <input type="text" class="form-control bashaName1"  id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Basha No</label>
-                                <input type="text" class="form-control bashaNo" id="validationCustom02" value="" required>
+                                <input type="text" class="form-control bashaNo1" id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Woner Name</label>
-                                <input type="text" class="form-control woner_no" id="validationCustom02" value="" required>
+                                <input type="text" class="form-control woner_no1" id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -439,28 +439,28 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Photo</label>
-                                <input type="file" class="form-control img1"  id="validationCustom02" value="" required>
+                                <input type="file" class="form-control img11"  id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Photo</label>
-                                <input type="file" class="form-control img2"  id="validationCustom02" value="" required>
+                                <input type="file" class="form-control img21"  id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Photo</label>
-                                <input type="file" class="form-control img3"  id="validationCustom02" value="" required>
+                                <input type="file" class="form-control img31"  id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Photo</label>
-                                <input type="file" class="form-control img4"  id="validationCustom02" value="" required>
+                                <input type="file" class="form-control img41"  id="validationCustom02" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -512,7 +512,7 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Basha Type</label>
-                                <select class="basha_type w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="basha_type1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="Single">Single</option>
                                     <option data-display="Select Division *" value="Single">Double</option>
                                     <option data-display="Select Division *" value="Single">Sublet</option>
@@ -526,7 +526,7 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Bed Room</label>
-                                <select class="bed_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="bed_room1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="1">1</option>
                                     <option data-display="Select Division *" value="2">2</option>
                                     <option data-display="Select Division *" value="3">3</option>
@@ -555,7 +555,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Wash Room</label>
-                                <select class="wash_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="wash_room1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="1">1</option>
                                     <option data-display="Select Division *" value="2">2</option>
                                     <option data-display="Select Division *" value="3">3</option>
@@ -574,7 +574,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Kitchen Room</label>
-                                <select class="kitchen_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="kitchen_room1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="1">1</option>
                                     <option data-display="Select Division *" value="2">2</option>
                                     <option data-display="Select Division *" value="3">3</option>
@@ -590,7 +590,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Barinda Room</label>
-                                <select class="barinda_room w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="barinda_room1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="1">1</option>
                                     <option data-display="Select Division *" value="2">2</option>
                                     <option data-display="Select Division *" value="3">3</option>
@@ -606,7 +606,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label">Flat Position</label>
-                                <select class="flat_position w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
+                                <select class="flat_position1 w-100 bb form-control{{ $errors->has('session') ? ' is-invalid' : '' }}" name="union" id="union">
                                     <option data-display="Select Division *" value="1">1 Floor</option>
                                     <option data-display="Select Division *" value="2">2 Floor</option>
                                     <option data-display="Select Division *" value="3">3 Floor</option>
@@ -630,7 +630,7 @@
                             <div class="col-md-4">
                                 <label for="validationCustom02" class="form-label mt-4 ">Gas supply</label>
 
-                                <input style="margin-top: 29px" class="gas_supply form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <input style="margin-top: 29px" class="gas_supply1 form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="" for="">
                                     Ok
                                 </label>
@@ -642,7 +642,7 @@
                             <div class="col-md-3">
                                 <label for="validationCustom02" class="form-label mt-4 ">Lift</label>
 
-                                <input style="margin-top: 29px" class="lift form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <input style="margin-top: 29px" class="lift1 form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="" for="">
                                     Ok
                                 </label>
@@ -654,7 +654,7 @@
                             <div class="col-md-3">
                                 <label for="validationCustom02" class="form-label mt-4 ">Genator</label>
 
-                                <input style="margin-top: 29px" class="generator form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <input style="margin-top: 29px" class="generator1 form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="" for="">
                                     Ok
                                 </label>
@@ -667,7 +667,7 @@
                             <div class="col-md-3">
                                 <label for="validationCustom02" class="form-label mt-4 ">Security</label>
 
-                                <input style="margin-top: 29px" class="security form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <input style="margin-top: 29px" class="security1 form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="" for="">
                                     Ok
                                 </label>
@@ -679,7 +679,7 @@
                             <div class="col-md-3">
                                 <label for="validationCustom02" class="form-label mt-4 ">Parking</label>
 
-                                <input style="margin-top: 29px" class="parking form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                                <input style="margin-top: 29px" class="parking1 form-check-input " type="checkbox" value="" id="flexCheckDefault">
                                 <label class="" for="">
                                     Ok
                                 </label>
@@ -691,28 +691,28 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Current Bill</label>
-                                <input type="text" class="Current_bill form-control"  id="validationCustom01" value="" required>
+                                <input type="text" class="Current_bill1 form-control"  id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Gas Bill</label>
-                                <input type="text" class="gas_bill form-control" id="validationCustom01" value="" required>
+                                <input type="text" class="gas_bill1 form-control" id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Water Bill</label>
-                                <input type="text" class="water_bill form-control" id="validationCustom01" value="" required>
+                                <input type="text" class="water_bill1 form-control" id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Service Charge</label>
-                                <input type="text" class="service_charge form-control" id="validationCustom01" value="" required>
+                                <input type="text" class="service_charge1 form-control" id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -720,14 +720,14 @@
 
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Sit Charge</label>
-                                <input type="text" class="sit_charge form-control"  id="validationCustom01" value="" required>
+                                <input type="text" class="sit_charge1 form-control"  id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="validationCustom01" class="form-label text-left">Basha Charge</label>
-                                <input type="text" class="basha_charge form-control"  id="validationCustom01" value="" required>
+                                <input type="text" class="basha_charge1 form-control"  id="validationCustom01" value="" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -737,7 +737,7 @@
                                 <label for="validationCustom01"  class="form-label text-left">Basha Description</label>
 
                                 <div class="form-group">
-                                    <textarea  class="form-control description summernote" name="summernote" id="summernote"></textarea>
+                                    <textarea  class="form-control description1 summernote" name="summernote" id="summernote"></textarea>
                                 </div>
                                 <div class="valid-feedback">
                                     Looks good!
@@ -846,6 +846,7 @@
                         $('.bashaEditBtn').click(function() {
                             var id = $(this).data('id');
 
+                            $('.basha_id').html(id);
                             // alert(id);
                             $('#bashaEditID').html(id);
 
@@ -912,35 +913,35 @@
 
                         var jsonData = response.data;
 
-                        let bashaName = $('.bashaName').val(jsonData.name);
-                        let bashaNo = $('.bashaNo').val(jsonData.no);
-                        let woner_no = $('.woner_no').val(jsonData.woner_no);
+                        let bashaName = $('.bashaName1').val(jsonData.name);
+                        let bashaNo = $('.bashaNo1').val(jsonData.no);
+                        let woner_no = $('.woner_no1').val(jsonData.woner_no);
 
 
-                        let img1= $('.img1').prop('files');
-                        let img2= $('.img2').prop('files');
-                        let img3= $('.img3').prop('files');
-                        let img4= $('.img4').prop('files');
-                        let division = $(".division option:selected").val();
-                        let district = $(".district option:selected").val();
-                        let upazila = $(".upazila option:selected").val();
-                        let union = $(".union select").val(jsonData.union);
-                        let basha_type = $(".basha_type option:selected").val(jsonData.basha_type);
-                        let bed_room = $(".bed_room option:selected").val(jsonData.bed_room);
-                        let wash_room = $(".wash_room option:selected").val(jsonData.wash_room);
-                        let kitchen_room = $(".kitchen_room option:selected").val(jsonData.kitchen_room);
-                        let barinda_room = $(".barinda_room option:selected").val(jsonData.barinda);
-                        let flat_position = $(".flat_position option:selected").val(jsonData.flat_position);
+                        let img1= $('.img11').prop('files');
+                        let img2= $('.img21').prop('files');
+                        let img3= $('.img31').prop('files');
+                        let img4= $('.img41').prop('files');
+                        let division = $(".division1 option:selected").val();
+                        let district = $(".district1 option:selected").val();
+                        let upazila = $(".upazila1 option:selected").val();
+                        let union = $(".union1 select").val(jsonData.union);
+                        let basha_type = $(".basha_type1 option:selected").val(jsonData.basha_type);
+                        let bed_room = $(".bed_room1 option:selected").val(jsonData.bed_room);
+                        let wash_room = $(".wash_room1 option:selected").val(jsonData.wash_room);
+                        let kitchen_room = $(".kitchen_room1 option:selected").val(jsonData.kitchen_room);
+                        let barinda_room = $(".barinda_room1 option:selected").val(jsonData.barinda);
+                        let flat_position = $(".flat_position1 option:selected").val(jsonData.flat_position);
                         let gas_supply = 0;
 
 
-                        let Current_bill = $('.Current_bill').val(jsonData.current_bill);
-                        let gas_bill = $('.gas_bill').val(jsonData.gash_bill);
-                        let water_bill = $('.water_bill').val(jsonData.water_bill);
-                        let service_charge = $('.service_charge').val(jsonData.service_charge);
-                        let sit_charge = $('.sit_charge').val(jsonData.sit_charge);
-                        let basha_charge = $('.basha_charge').val(jsonData.flat_charge);
-                        let description = $('.description').val(jsonData.description);
+                        let Current_bill = $('.Current_bill1').val(jsonData.current_bill);
+                        let gas_bill = $('.gas_bill1').val(jsonData.gash_bill);
+                        let water_bill = $('.water_bill1').val(jsonData.water_bill);
+                        let service_charge = $('.service_charge1').val(jsonData.service_charge);
+                        let sit_charge = $('.sit_charge1').val(jsonData.sit_charge);
+                        let basha_charge = $('.basha_charge1').val(jsonData.flat_charge);
+                        let description = $('.description1').val(jsonData.description);
 
 
                     } else {
@@ -960,33 +961,33 @@
 
         $('#UpdatebashaConfirm').click(function() {
 
-            let bashaName = $('.bashaName').val();
-            let bashaNo = $('.bashaNo').val();
-            let woner_no = $('.woner_no').val();
+            let bashaName = $('.bashaName1').val();
+            let bashaNo = $('.bashaNo1').val();
+            let woner_no = $('.woner_no1').val();
             // let img1 = $('.img1')[0].files[0].name;
             // let img2 = $('.img2')[0].files[0].name;
             // let img3 = $('.img3')[0].files[0].name;
             // let img4 = $('.img4')[0].files[0].name;
 
-            let img1= $('.img1').prop('files');
-            let img2= $('.img2').prop('files');
-            let img3= $('.img3').prop('files');
-            let img4= $('.img4').prop('files');
+            let img1= $('.img11').prop('files');
+            let img2= $('.img21').prop('files');
+            let img3= $('.img31').prop('files');
+            let img4= $('.img41').prop('files');
             let division = $(".division option:selected").val();
             let district = $(".district option:selected").val();
             let upazila = $(".upazila option:selected").val();
             let union = $(".union option:selected").val();
-            let basha_type = $(".basha_type option:selected").val();
-            let bed_room = $(".bed_room option:selected").val();
-            let wash_room = $(".wash_room option:selected").val();
-            let kitchen_room = $(".kitchen_room option:selected").val();
-            let barinda_room = $(".barinda_room option:selected").val();
-            let flat_position = $(".flat_position option:selected").val();
+            let basha_type = $(".basha_type1 option:selected").val();
+            let bed_room = $(".bed_room1 option:selected").val();
+            let wash_room = $(".wash_room1 option:selected").val();
+            let kitchen_room = $(".kitchen_room1 option:selected").val();
+            let barinda_room = $(".barinda_room1 option:selected").val();
+            let flat_position = $(".flat_position1 option:selected").val();
             let gas_supply = 0;
 
 
 
-            if ($(".gas_supply").is(':checked')){
+            if ($(".gas_supply1").is(':checked')){
                 gas_supply = 1;
                 // alert(gas_supply);
             }
@@ -1003,7 +1004,7 @@
 
 
 
-            if ($(".lift").is(':checked')){
+            if ($(".lift1").is(':checked')){
                 lift = 1;
                 // alert(gas_supply);
             }
@@ -1021,7 +1022,7 @@
 
 
 
-            if ($(".generator").is(':checked')){
+            if ($(".generator1").is(':checked')){
                 generator = 1;
                 // alert(gas_supply);
             }
@@ -1040,7 +1041,7 @@
 
 
 
-            if ($(".security").is(':checked')){
+            if ($(".security1").is(':checked')){
                 security = 1;
                 // alert(gas_supply);
             }
@@ -1059,7 +1060,7 @@
 
 
 
-            if ($(".parking").is(':checked')){
+            if ($(".parking1").is(':checked')){
                 parking = 1;
                 // alert(gas_supply);
             }
@@ -1074,13 +1075,13 @@
 
             // alert(generator);
 
-            let Current_bill = $('.Current_bill').val();
-            let gas_bill = $('.gas_bill').val();
-            let water_bill = $('.water_bill').val();
-            let service_charge = $('.service_charge').val();
-            let sit_charge = $('.sit_charge').val();
-            let basha_charge = $('.basha_charge').val();
-            let description = $('.description').val();
+            let Current_bill = $('.Current_bill1').val();
+            let gas_bill = $('.gas_bill1').val();
+            let water_bill = $('.water_bill1').val();
+            let service_charge = $('.service_charge1').val();
+            let sit_charge = $('.sit_charge1').val();
+            let basha_charge = $('.basha_charge1').val();
+            let description = $('.description1').val();
 
             let MyFormData = new FormData();
             MyFormData.append('FileKey1', img1[0]);
@@ -1116,7 +1117,11 @@
             MyFormData.append('bashaNo', bashaNo);
             MyFormData.append('woner_no', woner_no);
 
+            let basha_id = $('.basha_id').html();
+            MyFormData.append('basha_id', basha_id);
 
+
+            console.log(MyFormData)
             axios.post('/BashaUpdateConfirmBtn', MyFormData)
 
 

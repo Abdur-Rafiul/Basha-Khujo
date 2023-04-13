@@ -38,7 +38,7 @@ class CreateUsersSeeder extends Seeder
 
                 'name'=>'Admin User',
 
-                'email'=>'admin@itsolutionstuff.com',
+                'email'=>'shakela@gmail.com',
 
                 'type'=>1,
 
@@ -48,11 +48,11 @@ class CreateUsersSeeder extends Seeder
 
             [
 
-                'name'=>'Manager User',
+                'name'=>'Shakela ',
 
-                'email'=>'manager@itsolutionstuff.com',
+                'email'=>'shakelaone@gmail.com',
 
-                'type'=> 2,
+                'type'=> 1,
 
                 'password'=> bcrypt('123456'),
 
@@ -62,7 +62,7 @@ class CreateUsersSeeder extends Seeder
 
                 'name'=>'User',
 
-                'email'=>'user@itsolutionstuff.com',
+                'email'=>'shakelauser@gmail.com',
 
                 'type'=>0,
 

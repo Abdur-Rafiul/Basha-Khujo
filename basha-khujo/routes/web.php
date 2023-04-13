@@ -40,6 +40,7 @@ Route::get('/basha_list', [AdminHomeController::class, 'BashaList'])->name('bash
 Route::post('/bashaAdd', [AdminHomeController::class, 'bashaAdd']);
 Route::get('/getbasha', [AdminHomeController::class, 'getbasha']);
 Route::post('/editbasha', [AdminHomeController::class, 'editbasha']);
+Route::post('/BashaUpdateConfirmBtn', [AdminHomeController::class, 'updatebasha']);
 Route::post('/bashaDelete', [AdminHomeController::class, 'bashaDelete']);
 
 
